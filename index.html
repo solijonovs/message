@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Cookie Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            color: #ff9800;
+        }
+        .fortune {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .lucky-number {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .advice {
+            font-style: italic;
+            color: #2196F3;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🥠 Fortune Cookie Generator</h1>
+        <p class="fortune">Click the button to receive your fortune!</p>
+        <p class="lucky-number"></p>
+        <p class="advice"></p>
+        <button onclick="generateFortune()">Get Your Fortune</button>
+    </div>
+
+    <script>
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateFortune() {
+            const fortunes = [
+                "An exciting opportunity will present itself soon.",
+                "You will soon embark on a journey to success.",
+                "A pleasant surprise awaits you.",
+                "Your kindness will lead to great rewards.",
+                "Adventure is on the horizon, embrace it!"
+            ];
+
+            const luckyNumber = Math.floor(Math.random() * 99) + 1;
+
+            const advices = [
+                "Patience is a virtue. Good things come to those who wait.",
+                "Take risks. Sometimes, they lead to the best experiences.",
+                "Trust yourself. You know more than you think you do.",
+                "Hard work beats talent when talent doesn’t work hard.",
+                "Focus on progress, not perfection."
+            ];
+
+            document.querySelector(".fortune").textContent = "🌟 " + getRandomElement(fortunes);
+            document.querySelector(".lucky-number").textContent = "🔢 Lucky Number: " + luckyNumber;
+            document.querySelector(".advice").textContent = "📜 " + getRandomElement(advices);
+        }
+    </script>
+</body>
+</html>
